@@ -1,0 +1,14 @@
+FROM node:10-alpine
+
+WORKDIR /usr/src/app
+
+COPY ./package.json .
+COPY ./yarn.lock .
+
+RUN ["yarn", "install"]
+RUN ["yarn", "cache", "clean"]
+
+COPY . .
+
+CMD ["yarn", "webpack:watch"]
+EXPOSE 3000
