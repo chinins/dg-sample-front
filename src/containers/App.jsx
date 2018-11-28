@@ -1,7 +1,9 @@
 import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import '../App.css';
 import Header from '../components/Header';
+import Home from '../components/Home';
 
 const baseUrl = 'http://localhost:8080';
 
@@ -25,11 +27,15 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <Header />
-        <div>{this.state.home.title}</div>
-        <div>{this.state.home.content}</div>
-      </div>
+      <Router>
+        <div className="App">
+          <Header />
+          <Switch>
+            <Route exact path="/" render={() => <Home home={this.state.home} />} />
+            <Route exact path="/home" render={() => <Home home={this.state.home} />} />
+          </Switch>
+        </div>
+      </Router>
     );
   }
 }
