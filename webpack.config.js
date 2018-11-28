@@ -33,6 +33,10 @@ export default {
           loader: 'babel-loader',
           options: pkg.babel
         }
+      },
+      {
+        test: /\.css$/,
+        use: [{ loader: 'style-loader'}, { loader: 'css-loader' }]
       }
     ]
   },

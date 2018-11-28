@@ -22,7 +22,6 @@ class App extends React.Component {
   componentDidMount() {
     this.fetchHome();
     this.fetchPosts();
-    // this.fetchSpecificPost('Post 111');
   }
 
   fetchHome() {
@@ -46,15 +45,32 @@ class App extends React.Component {
   }
 
   render() {
+    const appStyle = {
+      display: 'flex',
+      flexDirection: 'column',
+      height: '100vh',
+      background: 'linear-gradient(#00FFFF, #7FDBFF)'
+    };
+
     return (
       <Router>
-        <div className="App">
+        <div className="App" style={appStyle}>
           <Header />
           <Switch>
-            {/* <Route exact path="/" render={() => <Home home={this.state.home} />} /> */}
             <Route exact path="/(home)?" render={() => <Home home={this.state.home} />} />
-            <Route exact path="/posts" render={() => <PostsList posts={this.state.posts} onFetchPost={this.fetchSpecificPost.bind(this)} />} />
-            <Route exact path="/posts/:name" render={() => <PostDetail post={this.state.postDetails} />} />
+            <Route
+              exact
+              path="/posts"
+              render={() =>
+                <PostsList
+                  posts={this.state.posts}
+                  onFetchPost={this.fetchSpecificPost.bind(this)}
+                />} />
+            <Route
+              exact
+              path="/posts/:name"
+              render={() => <PostDetail post={this.state.postDetails} />}
+            />
           </Switch>
         </div>
       </Router>
