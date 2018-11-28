@@ -1,5 +1,8 @@
 import React from 'react';
 
+import '../App.css';
+import Header from '../components/Header';
+
 const baseUrl = 'http://localhost:8080';
 
 class App extends React.Component {
@@ -23,6 +26,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
+        <Header />
         <div>{this.state.home.title}</div>
         <div>{this.state.home.content}</div>
       </div>
