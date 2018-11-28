@@ -1,13 +1,15 @@
 import React from 'react';
 
+import PostsListItem from './PostsListItem';
+
 function PostsList(props) {
   const renderPosts = () => {
-    return props.posts.map((post, index) => <div key={index}>{post + index}</div>);
+    return props.posts.map((post, index) => <PostsListItem key={index} post={post} />);
   };
 
   return (
     <div className="PostsList">
-      <div>something</div>
+      <div>All Posts</div>
       {renderPosts()}
     </div>
   );

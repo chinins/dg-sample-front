@@ -13,18 +13,25 @@ class App extends React.Component {
     super(props);
     this.state = {
       home: {},
-      posts: [1, 2, 3]
+      posts: []
     };
   }
 
   componentDidMount() {
     this.fetchHome();
+    this.fetchPosts();
   }
 
   fetchHome() {
     fetch(`${baseUrl}/home`)
       .then(res => res.json())
       .then(res => this.setState({ home: res }));
+  }
+
+  fetchPosts() {
+    fetch(`${baseUrl}/posts`)
+      .then(res => res.json())
+      .then(posts => this.setState({ posts }));
   }
 
   render() {
