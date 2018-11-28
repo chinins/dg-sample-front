@@ -22,9 +22,6 @@
     "url": "https://github.com/medfreeman/dg-sample-front/issues"
   },
   "homepage": "https://github.com/medfreeman/dg-sample-front#readme",
-  "engines": {
-    "node": "10.x"
-  },
   "devDependencies": {
     "@babel/core": "^7.1.6",
     "@babel/preset-env": "^7.1.6",
