@@ -4,7 +4,13 @@ import PostsListItem from './PostsListItem';
 
 function PostsList(props) {
   const renderPosts = () => {
-    return props.posts.map((post, index) => <PostsListItem key={index} post={post} />);
+    return props.posts.map((post, index) => {
+      return <PostsListItem key={index} post={post} onFetchPost={fetchPost} />;
+    });
+  };
+
+  const fetchPost = postName => {
+    props.onFetchPost(postName);
   };
 
   return (
